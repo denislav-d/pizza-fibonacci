@@ -8,9 +8,29 @@
 import SwiftUI
 
 struct IngredientsView: View {
+    
     var body: some View {
-        Text("Ingredients")
-    }
+           NavigationView {
+               List {
+                   ForEach(ingredientGroups) { ingredientGroup in
+                       Section(header: Text(ingredientGroup.groupName)) {
+                           ForEach(ingredientGroup.ingredients) { ingredient in
+                               HStack {
+                                   Text(ingredient.emoji)
+                                   VStack(alignment: .leading) {
+                                       Text(ingredient.name)
+                                           .fontWeight(.bold)
+                                       Text(ingredient.description)
+                                           .font(.subheadline)
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+               .navigationTitle("Ingredients")
+           }
+       }
 }
 
 #Preview {

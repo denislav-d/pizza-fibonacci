@@ -13,6 +13,7 @@
 		2234AC6B2B8CF52D002FDCF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2234AC6A2B8CF52D002FDCF8 /* Preview Assets.xcassets */; };
 		2234AC762B8CF679002FDCF8 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC752B8CF679002FDCF8 /* IngredientsView.swift */; };
 		2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC772B8CF686002FDCF8 /* PizzaView.swift */; };
+		2234AC7A2B8CFA08002FDCF8 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC792B8CFA08002FDCF8 /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2234AC6A2B8CF52D002FDCF8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2234AC752B8CF679002FDCF8 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 		2234AC772B8CF686002FDCF8 /* PizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaView.swift; sourceTree = "<group>"; };
+		2234AC792B8CFA08002FDCF8 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				2234AC632B8CF52B002FDCF8 /* PizzaFibonacciApp.swift */,
 				2234AC652B8CF52B002FDCF8 /* ContentView.swift */,
+				2234AC792B8CFA08002FDCF8 /* Ingredient.swift */,
 				2234AC752B8CF679002FDCF8 /* IngredientsView.swift */,
 				2234AC772B8CF686002FDCF8 /* PizzaView.swift */,
 				2234AC672B8CF52D002FDCF8 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			files = (
 				2234AC662B8CF52B002FDCF8 /* ContentView.swift in Sources */,
 				2234AC762B8CF679002FDCF8 /* IngredientsView.swift in Sources */,
+				2234AC7A2B8CFA08002FDCF8 /* Ingredient.swift in Sources */,
 				2234AC642B8CF52B002FDCF8 /* PizzaFibonacciApp.swift in Sources */,
 				2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */,
 			);
@@ -280,6 +284,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaFibonacci/Preview Content\"";
+				DEVELOPMENT_TEAM = 55LBKRHCKU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -308,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaFibonacci/Preview Content\"";
+				DEVELOPMENT_TEAM = 55LBKRHCKU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
