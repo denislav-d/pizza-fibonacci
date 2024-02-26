@@ -9,30 +9,43 @@ import SwiftUI
 
 struct IngredientsView: View {
     
+    @State private var meat = Ingredient.meat()
+    @State private var vegetables = Ingredient.vegetables()
+    @State private var spices = Ingredient.spices()
+    
     var body: some View {
-           NavigationView {
-               List {
-                   ForEach(ingredientGroups) { ingredientGroup in
-                       Section(header: Text(ingredientGroup.groupName)) {
-                           ForEach(ingredientGroup.ingredients) { ingredient in
-                               HStack {
-                                   Text(ingredient.emoji)
-                                   VStack(alignment: .leading) {
-                                       Text(ingredient.name)
-                                           .fontWeight(.bold)
-                                       Text(ingredient.description)
-                                           .font(.subheadline)
-                                   }
-                               }
-                           }
-                       }
-                   }
-               }
-               .navigationTitle("Ingredients")
-           }
-       }
+        NavigationStack{
+            List {
+                Section {
+                    ForEach(meat) { ingredient in
+                        IngredientRow(ingredient: ingredient)
+                    }
+                } header: {
+                    Text("Meat")
+                }
+                
+                Section {
+                    ForEach(vegetables) { ingredient in
+                        IngredientRow(ingredient: ingredient)
+                    }
+                } header: {
+                    Text("Vegetables")
+                }
+                
+                Section {
+                    ForEach(spices) { ingredient in
+                        IngredientRow(ingredient: ingredient)
+                    }
+                } header: {
+                    Text("Spices and Herbs")
+                }
+            }
+            .navigationTitle("Ingredients")
+        }
+    }
 }
 
 #Preview {
     IngredientsView()
 }
+

@@ -14,6 +14,7 @@
 		2234AC762B8CF679002FDCF8 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC752B8CF679002FDCF8 /* IngredientsView.swift */; };
 		2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC772B8CF686002FDCF8 /* PizzaView.swift */; };
 		2234AC7A2B8CFA08002FDCF8 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC792B8CFA08002FDCF8 /* Ingredient.swift */; };
+		225087DF2B8D426400E5CC1C /* IngredientRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225087DE2B8D426400E5CC1C /* IngredientRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2234AC752B8CF679002FDCF8 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 		2234AC772B8CF686002FDCF8 /* PizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaView.swift; sourceTree = "<group>"; };
 		2234AC792B8CFA08002FDCF8 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		225087DE2B8D426400E5CC1C /* IngredientRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				2234AC652B8CF52B002FDCF8 /* ContentView.swift */,
 				2234AC792B8CFA08002FDCF8 /* Ingredient.swift */,
 				2234AC752B8CF679002FDCF8 /* IngredientsView.swift */,
+				225087DE2B8D426400E5CC1C /* IngredientRow.swift */,
 				2234AC772B8CF686002FDCF8 /* PizzaView.swift */,
 				2234AC672B8CF52D002FDCF8 /* Assets.xcassets */,
 				2234AC692B8CF52D002FDCF8 /* Preview Content */,
@@ -149,6 +152,7 @@
 				2234AC662B8CF52B002FDCF8 /* ContentView.swift in Sources */,
 				2234AC762B8CF679002FDCF8 /* IngredientsView.swift in Sources */,
 				2234AC7A2B8CFA08002FDCF8 /* Ingredient.swift in Sources */,
+				225087DF2B8D426400E5CC1C /* IngredientRow.swift in Sources */,
 				2234AC642B8CF52B002FDCF8 /* PizzaFibonacciApp.swift in Sources */,
 				2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */,
 			);
