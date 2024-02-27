@@ -9,41 +9,23 @@ import SwiftUI
 
 struct IngredientsView: View {
     
-    @State private var meat = Ingredient.meat()
-    @State private var vegetables = Ingredient.vegetables()
-    @State private var spices = Ingredient.spices()
+    @EnvironmentObject var viewModel: IngredientsViewModel
     
     var body: some View {
         NavigationStack{
             List {
-                Section {
-                    ForEach(meat) { ingredient in
-                        IngredientRow(ingredient: ingredient)
+                ForEach(viewModel.sectionOrder, id: \.self) { section in
+                    Section(header: Text(section.capitalized)) {
+                        ForEach(viewModel.ingredients[section]!) { ingredient in
+                            IngredientRow(ingredient: ingredient)
+                        }
                     }
-                } header: {
-                    Text("Meat")
-                }
-                
-                Section {
-                    ForEach(vegetables) { ingredient in
-                        IngredientRow(ingredient: ingredient)
-                    }
-                } header: {
-                    Text("Vegetables")
-                }
-                
-                Section {
-                    ForEach(spices) { ingredient in
-                        IngredientRow(ingredient: ingredient)
-                    }
-                } header: {
-                    Text("Spices and Herbs")
                 }
             }
-            .navigationTitle("Ingredients")
-        }
+        }.navigationTitle("Ingredients")
     }
 }
+
 
 #Preview {
     IngredientsView()

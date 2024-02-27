@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView{
+        TabView {
             IngredientsView()
                 .tabItem { Label("Ingredients", systemImage: "basket")
                 }

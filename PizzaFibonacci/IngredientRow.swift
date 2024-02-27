@@ -9,29 +9,35 @@ import SwiftUI
 
 struct IngredientRow: View {
     
-    @State var ingredient: Ingredient
+    @EnvironmentObject var viewModel: IngredientsViewModel
+    var ingredient: Ingredient
     
     var body: some View {
-        
         HStack {
             Text(ingredient.emoji)
-            Text(ingredient.name)
+            VStack (alignment: .leading) {
+                Text(ingredient.name)
+                    .fontWeight(.bold)
+                Text(ingredient.description)
+                    .font(.subheadline)
+            }
             Spacer()
-            Image(systemName: ingredient.isSelected ? "plus" : "minus")
-                .foregroundColor(ingredient.isSelected ? .green : .red)
+            Image(systemName: ingredient.isSelected ? "minus" : "plus")
+                .foregroundColor(ingredient.isSelected ? .red : .green)
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            self.ingredient.isSelected.toggle()
-                 }
-        .scaleEffect(ingredient.isSelected ? 1.05 : 1.0)
+                // get ingredient from viewmodel.ingredients based on ingredient.
+                // viewModel.ingredients[Ingredient].isSelected.toggle()
+                // self.ingredient.isSelected.toggle()
+            print(self.ingredient)
+        }
+        .scaleEffect(ingredient.isSelected ? 1.0 : 1.05)
         .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)
     }
 }
 
-struct IngredientRow_Previews: PreviewProvider {
-    static var previews: some View {
-        IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", isSelected: true))
+#Preview {
+        IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
             .padding()
-    }
 }
