@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: IngredientsViewModel
+    
     var body: some View {
         TabView {
             IngredientsView()
-                .tabItem { Label("Ingredients", systemImage: "basket")
-                }
+                .tabItem { Label("Ingredients", systemImage: "basket") }
             
-            PizzaView()
-                .tabItem { Label("Pizza", systemImage: "fork.knife")
-                }
+            PizzaView(ingredients: viewModel.ingredients.filter { $0.isSelected })
+                .tabItem { Label("Pizza", systemImage: "fork.knife") }
         }
     }
 }

@@ -8,36 +8,31 @@
 import SwiftUI
 
 struct IngredientRow: View {
-    
     @EnvironmentObject var viewModel: IngredientsViewModel
     var ingredient: Ingredient
+    @State private var isSelected: Bool = false
     
     var body: some View {
         HStack {
             Text(ingredient.emoji)
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text(ingredient.name)
-                    .fontWeight(.bold)
                 Text(ingredient.description)
-                    .font(.subheadline)
             }
             Spacer()
-            Image(systemName: ingredient.isSelected ? "minus" : "plus")
-                .foregroundColor(ingredient.isSelected ? .red : .green)
+            Image(systemName: isSelected ? "minus" : "plus")
+                .foregroundColor(isSelected ? .red : .green)
         }
         .contentShape(Rectangle())
         .onTapGesture {
-                // get ingredient from viewmodel.ingredients based on ingredient.
-                // viewModel.ingredients[Ingredient].isSelected.toggle()
-                // self.ingredient.isSelected.toggle()
-            print(self.ingredient)
+            isSelected.toggle()
+            viewModel.toggleSelection(for: ingredient)
         }
-        .scaleEffect(ingredient.isSelected ? 1.0 : 1.05)
-        .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)
-    }
+        .scaleEffect(isSelected ? 1.0 : 1.05)
+        .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)    }
 }
 
 #Preview {
-        IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
-            .padding()
+    IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
+        .padding()
 }

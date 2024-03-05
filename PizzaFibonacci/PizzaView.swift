@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct PizzaView: View {
+    let ingredients: [Ingredient]
+    
     var body: some View {
-        Text("Pizza")
+        NavigationStack {
+            List {
+                ForEach(ingredients) { ingredient in
+                    if ingredient.isSelected {
+                        IngredientRow(ingredient: ingredient)
+                    }
+                }
+            }.navigationTitle("Pizza")
+        }
     }
-}
-
-#Preview {
-    PizzaView()
 }

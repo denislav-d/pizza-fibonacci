@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    
     @EnvironmentObject var viewModel: IngredientsViewModel
-    
+    @State private var isNextViewActive = false
+        
     var body: some View {
-        NavigationStack{
+        NavigationView {
             List {
-                ForEach(viewModel.sectionOrder, id: \.self) { section in
-                    Section(header: Text(section.capitalized)) {
-                        ForEach(viewModel.ingredients[section]!) { ingredient in
-                            IngredientRow(ingredient: ingredient)
-                        }
-                    }
+                ForEach(viewModel.ingredients) { ingredient in
+                    IngredientRow(ingredient: ingredient)
                 }
             }
-        }.navigationTitle("Ingredients")
+            .navigationTitle("Ingredients")
+            .navigationBarItems(trailing: Button("Next") {
+                isNextViewActive = true
+            })
+            .sheet(isPresented: $isNextViewActive) {
+                PizzaView(ingredients: viewModel.ingredients)
+            }
+        }
     }
 }
-
 
 #Preview {
     IngredientsView()
 }
-
