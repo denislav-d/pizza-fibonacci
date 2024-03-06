@@ -14,6 +14,7 @@ struct Ingredient: Identifiable, Equatable {
     var emoji: String
     var description: String
     var isSelected: Bool
+    var amount: Int = 0
 }
 
 class IngredientsViewModel: ObservableObject {
@@ -38,5 +39,41 @@ class IngredientsViewModel: ObservableObject {
                 ingredients[index].isSelected.toggle()
             }
         }
+    
+    func fibonacciSequence(forSelectedIngredients ingredients: [Ingredient]) -> [Int] {
+        var fibonacci: [Int] = []
+        var selectedIngredientsCount = 0
+        
+        for ingredient in ingredients {
+            if ingredient.isSelected {
+                selectedIngredientsCount += 1
+            }
+        }
+        
+        fibonacci.append(1)
+        fibonacci.append(1)
+        
+        if selectedIngredientsCount >= 2 {
+            for _ in 2..<selectedIngredientsCount {
+                let previous = fibonacci[fibonacci.count - 1]
+                let secondPrevious = fibonacci[fibonacci.count - 2]
+                let nextFibonacci = previous + secondPrevious
+                fibonacci.append(nextFibonacci)
+            }
+        }
+        
+        var sequenceIndex = 0
+        for index in ingredients.indices {
+            if ingredients[index].isSelected {
+                var ingredient = ingredients[index]
+                ingredient.amount = fibonacci[sequenceIndex]
+                self.ingredients[index] = ingredient
+                sequenceIndex += 1
+            }
+        }
+        
+        return fibonacci
+    }
+
 }
 

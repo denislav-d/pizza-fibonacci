@@ -12,7 +12,7 @@ struct IngredientsView: View {
     @State private var isNextViewActive = false
         
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(viewModel.ingredients) { ingredient in
                     IngredientRow(ingredient: ingredient, isSelected: ingredient.isSelected)
@@ -23,7 +23,8 @@ struct IngredientsView: View {
                 isNextViewActive = true
             })
             .sheet(isPresented: $isNextViewActive) {
-                PizzaView(ingredients: viewModel.ingredients)
+                let fibonacciSequence = viewModel.fibonacciSequence(forSelectedIngredients: viewModel.ingredients)
+                PizzaView(ingredients: viewModel.ingredients, fibonacciSequence: fibonacciSequence)
             }
         }
     }
@@ -32,3 +33,4 @@ struct IngredientsView: View {
 #Preview {
     IngredientsView()
 }
+
