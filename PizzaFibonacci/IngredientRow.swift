@@ -10,7 +10,7 @@ import SwiftUI
 struct IngredientRow: View {
     @EnvironmentObject var viewModel: IngredientsViewModel
     var ingredient: Ingredient
-    @State private var isSelected: Bool = false
+    @State var isSelected: Bool
     
     var body: some View {
         HStack {
@@ -29,10 +29,11 @@ struct IngredientRow: View {
             viewModel.toggleSelection(for: ingredient)
         }
         .scaleEffect(isSelected ? 1.0 : 1.05)
-        .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)    }
+        .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)
+    }
 }
-
-#Preview {
-    IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
-        .padding()
-}
+//
+//#Preview {
+//    IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
+//        .padding()
+//}

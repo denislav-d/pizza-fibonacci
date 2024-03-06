@@ -11,11 +11,17 @@ struct PizzaView: View {
     let ingredients: [Ingredient]
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
                 ForEach(ingredients) { ingredient in
                     if ingredient.isSelected {
-                        IngredientRow(ingredient: ingredient)
+                        HStack {
+                            Text(ingredient.emoji)
+                            VStack(alignment: .leading) {
+                                Text(ingredient.name)
+                                Text(ingredient.description)
+                            }
+                        }
                     }
                 }
             }.navigationTitle("Pizza")

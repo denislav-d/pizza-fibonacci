@@ -15,7 +15,7 @@ struct ContentView: View {
             IngredientsView()
                 .tabItem { Label("Ingredients", systemImage: "basket") }
             
-            PizzaView(ingredients: viewModel.ingredients.filter { $0.isSelected })
+            PizzaView(ingredients: viewModel.ingredients)
                 .tabItem { Label("Pizza", systemImage: "fork.knife") }
         }
     }

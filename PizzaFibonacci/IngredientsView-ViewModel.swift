@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 struct Ingredient: Identifiable, Equatable {
+    let id = UUID()
     var name: String
     var emoji: String
     var description: String
     var isSelected: Bool
-    let id = UUID()
 }
 
 class IngredientsViewModel: ObservableObject {

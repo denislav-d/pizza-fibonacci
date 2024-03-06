@@ -15,7 +15,7 @@ struct IngredientsView: View {
         NavigationView {
             List {
                 ForEach(viewModel.ingredients) { ingredient in
-                    IngredientRow(ingredient: ingredient)
+                    IngredientRow(ingredient: ingredient, isSelected: ingredient.isSelected)
                 }
             }
             .navigationTitle("Ingredients")
