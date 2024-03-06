@@ -13,36 +13,47 @@ struct PizzaView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(fibonacciSequence.indices, id: \.self) { index in
-                    let ingredientIndex = self.index(of: index)
-                    if let ingredientIndex = ingredientIndex {
-                        let ingredient = self.ingredients[ingredientIndex]
-                        HStack {
-                            Text(ingredient.emoji)
-                            VStack(alignment: .leading) {
-                                Text(ingredient.name)
-                                Text(ingredient.description)
+            if hasSelectedIngredients {
+                List {
+                    ForEach(fibonacciSequence.indices, id: \.self) { index in
+                        if let ingredientIndex = self.index(of: index) {
+                            let ingredient = self.ingredients[ingredientIndex]
+                            HStack {
+                                Text(ingredient.emoji)
+                                VStack(alignment: .leading) {
+                                    Text(ingredient.name)
+                                    Text(ingredient.description)
+                                }
+                                Spacer()
+                                Text("\(self.fibonacciSequence[index])")
                             }
-                            Spacer()
-                            Text("\(self.fibonacciSequence[index])")
                         }
                     }
                 }
-            }.navigationTitle("Pizza")
+                .navigationTitle("Pizza")
+            } else {
+                Text("No ingredients selected")
+                    .foregroundColor(.gray)
+                    .font(.headline)
+                    .padding()
+                    .navigationTitle("Pizza")
+            }
         }
+    }
+    
+    var hasSelectedIngredients: Bool {
+        return ingredients.contains(where: { $0.isSelected })
     }
     
     func index(of sequenceIndex: Int) -> Int? {
         var count = 0
-        for (index, ingredient) in ingredients.enumerated() {
+        return ingredients.firstIndex { ingredient in
             if ingredient.isSelected {
-                if count == sequenceIndex {
-                    return index
-                }
                 count += 1
+                return count - 1 == sequenceIndex
             }
+            return false
         }
-        return nil
     }
 }
+

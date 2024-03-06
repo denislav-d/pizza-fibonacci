@@ -17,7 +17,9 @@ struct IngredientRow: View {
             Text(ingredient.emoji)
             VStack(alignment: .leading) {
                 Text(ingredient.name)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 Text(ingredient.description)
+                    .font(.subheadline)
             }
             Spacer()
             Image(systemName: isSelected ? "minus" : "plus")
@@ -32,8 +34,8 @@ struct IngredientRow: View {
         .animation(.easeOut(duration: 0.4), value: ingredient.isSelected)
     }
 }
-//
+
 //#Preview {
-//    IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: false))
+//    IngredientRow(ingredient: Ingredient(name: "Pepperoni", emoji: "🍖", description: "Freshly sliced pepperoni", isSelected: true))
 //        .padding()
 //}
