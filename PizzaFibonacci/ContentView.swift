@@ -15,9 +15,9 @@ struct ContentView: View {
             IngredientsView()
                 .tabItem { Label("Ingredients", systemImage: "basket") }
             
-//            let fibonacciSequence = viewModel.fibonacciSequence(forSelectedIngredients: viewModel.ingredients)
-//            PizzaView(ingredients: viewModel.ingredients, fibonacciSequence: fibonacciSequence)
-//                .tabItem { Label("Pizza", systemImage: "fork.knife") }
+            let fibonacciSequence = viewModel.fibonacciSequence(forSelectedIngredients: viewModel.ingredients)
+            PizzaView(ingredients: viewModel.ingredients, fibonacciSequence: fibonacciSequence)
+                .tabItem { Label("Pizza", systemImage: "fork.knife") }
         }
     }
 }

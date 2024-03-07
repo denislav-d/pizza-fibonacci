@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Identifiable, Equatable {
+struct Ingredient: Identifiable, Equatable, Hashable {
     let id = UUID()
     var name: String
     var emoji: String

@@ -29,8 +29,12 @@ struct PizzaView: View {
                             }
                         }
                     }
+                    
+                    // Pizza Image with Emojis Overlay
+                    PizzaWithEmojisOverlayView(ingredients: ingredients)
                 }
                 .navigationTitle("Pizza")
+                
             } else {
                 Text("No ingredients selected")
                     .foregroundColor(.gray)
@@ -57,3 +61,50 @@ struct PizzaView: View {
     }
 }
 
+struct PizzaWithEmojisOverlayView: View {
+    let ingredients: [Ingredient]
+    
+    var body: some View {
+        ZStack {
+            Image("pizza")
+                .resizable()
+                .scaledToFit()
+            
+            // Overlay emojis for selected ingredients
+            ForEach(selectedIngredientsWithCounts(), id: \.0.id) { (ingredient, count) in
+                ForEach(0..<count, id: \.self) { _ in
+                    EmojiOverlay(emoji: ingredient.emoji, position: randomPosition())
+                }
+            }
+        }
+    }
+    
+    // Calculate random position for each emoji
+    func randomPosition() -> CGPoint {
+        let x = CGFloat.random(in: 50..<250)
+        let y = CGFloat.random(in: 50..<250)
+        return CGPoint(x: x, y: y)
+    }
+    
+    // Get selected ingredients with their total amounts
+    func selectedIngredientsWithCounts() -> [(Ingredient, Int)] {
+        var ingredientCounts: [Ingredient: Int] = [:]
+        for ingredient in ingredients {
+            if ingredient.isSelected {
+                ingredientCounts[ingredient, default: 0] += ingredient.amount
+            }
+        }
+        return Array(ingredientCounts)
+    }
+}
+
+struct EmojiOverlay: View {
+    let emoji: String
+    let position: CGPoint
+    
+    var body: some View {
+        Text(emoji)
+            .font(.largeTitle)
+            .position(position)
+    }
+}
