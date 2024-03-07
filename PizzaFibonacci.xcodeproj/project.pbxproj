@@ -15,6 +15,8 @@
 		2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234AC772B8CF686002FDCF8 /* PizzaView.swift */; };
 		225087DF2B8D426400E5CC1C /* IngredientRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225087DE2B8D426400E5CC1C /* IngredientRow.swift */; };
 		22E03B672B99E1A200A7B262 /* Ingredients.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E03B662B99E1A200A7B262 /* Ingredients.json */; };
+		22E03B692B99E5C600A7B262 /* PizzaOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E03B682B99E5C600A7B262 /* PizzaOverlayView.swift */; };
+		22E03B6B2B99E62B00A7B262 /* EmojiOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E03B6A2B99E62B00A7B262 /* EmojiOverlay.swift */; };
 		22E7A7272B8DF37600FC6D1D /* IngredientsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E7A7262B8DF37600FC6D1D /* IngredientsView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		2234AC772B8CF686002FDCF8 /* PizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaView.swift; sourceTree = "<group>"; };
 		225087DE2B8D426400E5CC1C /* IngredientRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRow.swift; sourceTree = "<group>"; };
 		22E03B662B99E1A200A7B262 /* Ingredients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Ingredients.json; path = ../../../../../Desktop/Ingredients.json; sourceTree = "<group>"; };
+		22E03B682B99E5C600A7B262 /* PizzaOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOverlayView.swift; sourceTree = "<group>"; };
+		22E03B6A2B99E62B00A7B262 /* EmojiOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiOverlay.swift; sourceTree = "<group>"; };
 		22E7A7262B8DF37600FC6D1D /* IngredientsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IngredientsView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,10 +68,8 @@
 				22E03B632B99DE6C00A7B262 /* Models */,
 				2234AC632B8CF52B002FDCF8 /* PizzaFibonacciApp.swift */,
 				2234AC652B8CF52B002FDCF8 /* ContentView.swift */,
-				22E7A7262B8DF37600FC6D1D /* IngredientsView-ViewModel.swift */,
-				2234AC752B8CF679002FDCF8 /* IngredientsView.swift */,
-				225087DE2B8D426400E5CC1C /* IngredientRow.swift */,
-				2234AC772B8CF686002FDCF8 /* PizzaView.swift */,
+				22E03B6C2B99E6A900A7B262 /* Viewmodels */,
+				22E03B6D2B99E6BC00A7B262 /* Views */,
 				2234AC672B8CF52D002FDCF8 /* Assets.xcassets */,
 				2234AC692B8CF52D002FDCF8 /* Preview Content */,
 			);
@@ -88,6 +90,26 @@
 				22E03B662B99E1A200A7B262 /* Ingredients.json */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		22E03B6C2B99E6A900A7B262 /* Viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				22E7A7262B8DF37600FC6D1D /* IngredientsView-ViewModel.swift */,
+			);
+			path = Viewmodels;
+			sourceTree = "<group>";
+		};
+		22E03B6D2B99E6BC00A7B262 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2234AC752B8CF679002FDCF8 /* IngredientsView.swift */,
+				225087DE2B8D426400E5CC1C /* IngredientRow.swift */,
+				2234AC772B8CF686002FDCF8 /* PizzaView.swift */,
+				22E03B682B99E5C600A7B262 /* PizzaOverlayView.swift */,
+				22E03B6A2B99E62B00A7B262 /* EmojiOverlay.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +184,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2234AC662B8CF52B002FDCF8 /* ContentView.swift in Sources */,
+				22E03B692B99E5C600A7B262 /* PizzaOverlayView.swift in Sources */,
 				2234AC762B8CF679002FDCF8 /* IngredientsView.swift in Sources */,
+				22E03B6B2B99E62B00A7B262 /* EmojiOverlay.swift in Sources */,
 				225087DF2B8D426400E5CC1C /* IngredientRow.swift in Sources */,
 				2234AC642B8CF52B002FDCF8 /* PizzaFibonacciApp.swift in Sources */,
 				2234AC782B8CF686002FDCF8 /* PizzaView.swift in Sources */,
