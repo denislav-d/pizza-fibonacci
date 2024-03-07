@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Identifiable, Equatable, Hashable {
-    let id = UUID()
+struct Ingredient: Identifiable, Decodable, Hashable, Equatable {
+    var id: Int
     var name: String
     var emoji: String
     var description: String
@@ -18,19 +18,7 @@ struct Ingredient: Identifiable, Equatable, Hashable {
 }
 
 class IngredientsViewModel: ObservableObject {
-    var ingredients: [Ingredient] = [
-        Ingredient(name: "Pepperoni", emoji: "🍖", description: "Classic pepperoni slices", isSelected: false),
-        Ingredient(name: "Ham", emoji: "🥩", description: "Sliced ham", isSelected: false),
-        Ingredient(name: "Italian Sausage", emoji: "🍗", description: "Italian sausage crumbles", isSelected: false),
-        Ingredient(name: "Tomatoes", emoji: "🍅", description: "Fresh tomatoes sliced thinly", isSelected: false),
-        Ingredient(name: "Mushrooms", emoji: "🍄", description: "Sliced mushrooms", isSelected: false),
-        Ingredient(name: "Onions", emoji: "🧅", description: "Thinly sliced onions", isSelected: false),
-        Ingredient(name: "Bell Peppers", emoji: "🫑", description: "Thinly sliced bell peppers", isSelected: false),
-        Ingredient(name: "Olives", emoji: "🫒", description: "Sliced black olives", isSelected: false),
-        Ingredient(name: "Basil", emoji: "🌿", description: "Fresh basil leaves", isSelected: false),
-        Ingredient(name: "Oregano", emoji: "🪴", description: "Dried oregano flakes", isSelected: false),
-        Ingredient(name: "Garlic", emoji: "🧄", description: "Minced garlic cloves", isSelected: false)
-    ]
+    var ingredients: [Ingredient] = load("Ingredients.json")
     
     let sectionOrder = ["meat", "vegetables", "spices"]
     
@@ -68,5 +56,29 @@ class IngredientsViewModel: ObservableObject {
             }
         }
         return fibonacci
+    }
+}
+
+func load<T: Decodable>(_ filename: String) -> T {
+    let data: Data
+
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+    else {
+        fatalError("Couldn't find \(filename) in main bundle.")
+    }
+
+    do {
+        data = try Data(contentsOf: file)
+    } catch {
+        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+    }
+
+    do {
+        let decoder = JSONDecoder()
+        // Specify Int.self as the type for the id property
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(T.self, from: data)
+    } catch {
+        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
