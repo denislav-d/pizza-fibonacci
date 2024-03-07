@@ -10,12 +10,16 @@ import SwiftUI
 struct IngredientsView: View {
     @EnvironmentObject var viewModel: IngredientsViewModel
     @State private var isNextViewActive = false
-        
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.ingredients) { ingredient in
-                    IngredientRow(ingredient: ingredient, isSelected: ingredient.isSelected)
+                ForEach(viewModel.sectionOrder, id: \.self) { section in
+                    Section(header: Text(section.capitalized)) {
+                        ForEach(viewModel.ingredients.filter { $0.category == section }) { ingredient in
+                            IngredientRow(ingredient: ingredient, isSelected: ingredient.isSelected)
+                        }
+                    }
                 }
             }
             .navigationTitle("Ingredients")
@@ -29,6 +33,7 @@ struct IngredientsView: View {
         }
     }
 }
+
 
 #Preview {
     IngredientsView()

@@ -13,6 +13,7 @@ struct Ingredient: Identifiable, Decodable, Hashable, Equatable {
     var name: String
     var emoji: String
     var description: String
+    var category: String
     var isSelected: Bool
     var amount: Int = 0
 }
@@ -20,7 +21,7 @@ struct Ingredient: Identifiable, Decodable, Hashable, Equatable {
 class IngredientsViewModel: ObservableObject {
     var ingredients: [Ingredient] = load("Ingredients.json")
     
-    let sectionOrder = ["meat", "vegetables", "spices"]
+    let sectionOrder = ["Meat", "Vegetables", "Spices and herbs"]
     
     func toggleSelection(for ingredient: Ingredient) {
         if let index = ingredients.firstIndex(where: { $0.id == ingredient.id }) {
@@ -75,7 +76,6 @@ func load<T: Decodable>(_ filename: String) -> T {
 
     do {
         let decoder = JSONDecoder()
-        // Specify Int.self as the type for the id property
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode(T.self, from: data)
     } catch {
