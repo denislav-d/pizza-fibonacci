@@ -12,7 +12,7 @@ struct PizzaView: View {
     let fibonacciSequence: [Int]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             if hasSelectedIngredients {
                 List {
                     ForEach(fibonacciSequence.indices, id: \.self) { index in

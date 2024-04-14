@@ -24,14 +24,12 @@ struct PizzaOverlayView: View {
         }
     }
     
-    // Calculate random position for each emoji
     func randomPosition() -> CGPoint {
         let x = CGFloat.random(in: 75..<250)
         let y = CGFloat.random(in: 75..<250)
         return CGPoint(x: x, y: y)
     }
     
-    // Get selected ingredients with their total amounts
     func selectedIngredientsWithCounts() -> [(Ingredient, Int)] {
         var ingredientCounts: [Ingredient: Int] = [:]
         for ingredient in ingredients {
